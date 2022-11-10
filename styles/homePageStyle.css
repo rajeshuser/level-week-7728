@@ -3,55 +3,9 @@ body {
     padding: 0 5%;
 }
 
-#options {
-    display: flex;
-    height: 10vh;
-    justify-content: space-around;
-}
-#logo {
-    margin-right: 40%;
-}
-#tabs {
-    display: flex;
-    height: 15vh;
-    margin: 2vh 0;
-    justify-content: space-around;
-}
-#tabs > :nth-child(n) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 15%;
-}
-#tabs > :nth-child(n):hover {
-    background-color: black;
-    color: white;
-}
-
-#searchDiv {
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    margin-top: 10vh;
-}
-#search {
-    display: block;
-    margin: auto;
-    width: 80%;
-    padding: 2vh 3vh;
-    font-size: larger;
-}
-#searchDiv > button {
-    display: block;
-    width: 70%;
-    height: 70%;
-    margin: auto auto auto 0;
-}
-#searchDiv > img {
+#background > img {
     display: block;
     margin: 3% auto;
-    grid-area: 2/1/3/3;
 }
 
 #searchHistory {
@@ -166,41 +120,4 @@ h1 {
 }
 #bestTravellersChoice > img {
     width: 50%;
-}
-
-#footer {
-    background-color: rgb(241, 229, 205);
-    height: 55vh;
-}
-#footerFirstHalf {
-    display: flex;
-}
-ul {
-    list-style-type: none;
-    font-size: larger;
-    color: black;
-    line-height: 150%;
-}
-li {
-    color:  grey;
-}
-#footerSecondHalf {
-    display: flex;
-    height: 5vh;
-    margin: auto;
-    justify-content: space-around;
-}
-#extraInfo {
-    width: 50%;
-}
-#extraInfo > p {
-    margin: 0;
-}
-#socialMedia {
-    display: flex;
-    width: 30%;
-    justify-content: space-around;
-}
-#socialMedia > img {
-    display: block;
 }
