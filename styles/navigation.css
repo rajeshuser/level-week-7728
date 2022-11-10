@@ -1,0 +1,27 @@
+
+#options {
+    display: flex;
+    height: 10vh;
+    justify-content: space-around;
+}
+#logo {
+    margin-right: 40%;
+}
+#tabs {
+    display: flex;
+    height: 15vh;
+    margin: 2vh 0;
+    justify-content: space-around;
+}
+#tabs > :nth-child(n) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 15%;
+}
+#tabs > :nth-child(n):hover {
+    background-color: black;
+    color: white;
+}
