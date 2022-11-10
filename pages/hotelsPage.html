@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chillout</title>
+    <link rel="stylesheet" href="../styles/hotelsPageStyle.css">
+    <link rel="stylesheet" href="../styles/navigation.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+</head>
+<body>
+    <div id="navigation">
+        <div id="options">
+            <img id="logo" src="../resources/logo.png" alt="logo">
+            <h3>Review</h3>
+            <h3>Trips</h3>
+            <h3>Alerts</h3>
+            <img src="../resources/userAvatarPlaceholder.png" alt="userAvatarPlaceholder">
+            <img src="../resources/cart.png" alt="cart">
+        </div>
+        <div id="tabs">
+            <h3>Hotels</h3>
+            <h3>Holiday Homes</h3>
+            <h3>Places To Visit</h3>
+            <h3>Restaurants</h3>
+            <h3>Travel Stories</h3>
+            <h3>More...</h3>
+        </div>
+    </div>
+
+    <div id="searchDiv">
+        <input id="search" type="text">
+        <button>Search</button>
+    </div>
+
+    <div id="main">
+        <div id="filters">
+            <div name="covidSafeFilter">
+                <h3>Covid 19 safety</h3>
+                <label><input class="covidSafe" type="checkbox">Covid safe</label>
+            </div>
+            <div name="dealFilter">
+                <h3>Deals</h3>
+                <label><input class="deals" type="checkbox">Free cancellation</label>
+                <label><input class="deals" type="checkbox">Reserve now, pay at stay</label>
+                <label><input class="deals" type="checkbox">Properties with speacial offer</label>
+            </div>
+            <div name="priceFilter">
+                <h3>Price</h3>
+                <label><input class="price" type="range" min="0" max="20000">Rs. 0</label>
+            </div>
+            <div name="propertyTypeFilter">
+                <h3>Property type</h3>
+                <label><input class="property" type="checkbox">Guest houses</label>
+                <label><input class="property" type="checkbox">Speacial logings</label>
+                <label><input class="property" type="checkbox">Lodges</label>
+            </div>
+            <div name="amenitiesFilter">
+                <h3>Amenities</h3>
+                <label><input class="amenities" type="checkbox">Free wifi</label>
+                <label><input class="amenities" type="checkbox">Breakfast included</label>
+                <label><input class="amenities" type="checkbox">Pool</label>
+                <label><input class="amenities" type="checkbox">Free parking</label>
+            </div>
+            <div name="hotelClassFilter">
+                <h3>Hotel class</h3>
+                <label><input class="hotelClass" type="checkbox">5</label>
+                <label><input class="hotelClass" type="checkbox">4</label>
+                <label><input class="hotelClass" type="checkbox">3</label>
+                <label><input class="hotelClass" type="checkbox">2</label>
+            </div>
+            <div name="brandFilter">
+                <h3>Brand</h3>
+                <label><input class="brand" type="checkbox">OYO</label>
+                <label><input class="brand" type="checkbox">FabHotels</label>
+                <label><input class="brand" type="checkbox">Treebo</label>
+                <label><input class="brand" type="checkbox">Radisson</label>
+            </div>
+        </div>
+        <div id="resultSortHotels">
+            <div id="resultAndSort">
+                <h3>5,891 properties in New Delhi</h3>
+                <label>
+                    <select name="sort" id="sort">
+                        <option value="">All</option>
+                        <option value="Sort by price LTH">Sort by price LTH</option>
+                        <option value="Sort by price HTL">Sort by price HTL</option>
+                        <option value="Sort by rating">Sort by rating</option>
+                    </select>
+                </label>
+            </div>
+            <div id="hotels">
+                <!-- <div class="hotel">
+
+                </div> -->
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="FAQ">
+
+    </div>
+
+    <div id="holidadySpecial">
+
+    </div>
+
+    <div id="footer">
+        <div id="footerFirstHalf">
+            <ul id="aboutChillout">
+                About Chillout
+                <li>About Us</li>
+                <li>Press</li>
+                <li>Resources and Policies</li>
+                <li>Careers</li>
+                <li>Trust & Safety</li>
+                <li>Contact us</li>
+                <li>Accessibility Statement</li>
+            </ul>
+            <ul id="exploreWebsite">
+                Explore
+                <li>Write a review</li>
+                <li>Add a Place</li>
+                <li>Join</li>
+                <li>Travellers' Choice</li>
+                <li>GreenLeaders</li>
+                <li>Help Centre</li>
+                <li>Travel Articles</li>
+            </ul>
+            <ul id="doBusinessWithUs">
+                Do Business With Us
+                <li>Owners & DMO/CVB</li>
+                <li>Business Advantage</li>
+                <li>Sponsored Placements</li>
+                <li>Access our Content API</li>
+            </ul>
+            <ul id="getAPI">
+                Get The App
+                <li>iPhone App</li>
+                <li>Android App</li>
+            </ul>
+        </div>  
+        <div id="footerSecondHalf">
+            <img src="../resources/logo.png" alt="logo">
+            <div id="extraInfo">
+                <p>© 2022 Chillout LLC All rights reserved</p>
+                <a href="">Terms of Use</a>
+                <a href="">Privacy and Cookies Statement</a>
+                <a href="">Cookie consent</a>
+                <a href="">Site Map</a>
+                <a href="">How the site works</a>
+                <a href="">Contact us</a>
+            </div>
+            <div id="socialMedia">
+                <img src="../resources/facebook.svg" alt="facebook">
+                <img src="../resources/twitter.svg" alt="twitter">
+                <img src="../resources/pinterest.svg" alt="pinterest">
+                <img src="../resources/instagram.svg" alt="instagram">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script src="../scripts/hotelsPageScript.js"></script>
