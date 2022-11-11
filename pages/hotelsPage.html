@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../styles/footer.css">
 </head>
 <body>
+
     <div id="navigation">
         <div id="options">
             <img id="logo" src="../resources/logo.png" alt="logo">
@@ -30,7 +31,7 @@
     </div>
 
     <div id="searchDiv">
-        <input id="search" type="text">
+        <input id="search" type="text" placeholder="Enter a city">
         <button>Search</button>
     </div>
 
@@ -40,53 +41,55 @@
                 <h3>Covid 19 safety</h3>
                 <label><input class="covidSafe" type="checkbox">Covid safe</label>
             </div>
-            <div name="dealFilter">
+            <div name="dealsFilter">
                 <h3>Deals</h3>
-                <label><input class="deals" type="checkbox">Free cancellation</label>
-                <label><input class="deals" type="checkbox">Reserve now, pay at stay</label>
-                <label><input class="deals" type="checkbox">Properties with speacial offer</label>
+                <label><input class="deals" type="checkbox" value="Free cancellation">Free cancellation</label>
+                <label><input class="deals" type="checkbox" value="Reserve now, pay at stay">Reserve now, pay at stay</label>
+                <label><input class="deals" type="checkbox" value="Properties with speacial offer">Properties with speacial offer</label>
             </div>
             <div name="priceFilter">
                 <h3>Price</h3>
-                <label><input class="price" type="range" min="0" max="20000">Rs. 0</label>
+                <p>Rs. 0</p>
+                <label>0<input class="price" type="range" min="0" max="50000">50000</label>
             </div>
             <div name="propertyTypeFilter">
                 <h3>Property type</h3>
-                <label><input class="property" type="checkbox">Guest houses</label>
-                <label><input class="property" type="checkbox">Speacial logings</label>
-                <label><input class="property" type="checkbox">Lodges</label>
+                <label><input class="propertyType" type="checkbox" value="Guest houses">Guest houses</label>
+                <label><input class="propertyType" type="checkbox" value="Speacial logings">Speacial logings</label>
+                <label><input class="propertyType" type="checkbox" value="Lodges">Lodges</label>
             </div>
             <div name="amenitiesFilter">
                 <h3>Amenities</h3>
-                <label><input class="amenities" type="checkbox">Free wifi</label>
-                <label><input class="amenities" type="checkbox">Breakfast included</label>
-                <label><input class="amenities" type="checkbox">Pool</label>
-                <label><input class="amenities" type="checkbox">Free parking</label>
+                <label><input class="amenities" type="checkbox" value="Free wifi">Free wifi</label>
+                <label><input class="amenities" type="checkbox" value="Breakfast included">Breakfast included</label>
+                <label><input class="amenities" type="checkbox" value="Pool">Pool</label>
+                <label><input class="amenities" type="checkbox" value="Free parking">Free parking</label>
             </div>
             <div name="hotelClassFilter">
                 <h3>Hotel class</h3>
-                <label><input class="hotelClass" type="checkbox">5</label>
-                <label><input class="hotelClass" type="checkbox">4</label>
-                <label><input class="hotelClass" type="checkbox">3</label>
-                <label><input class="hotelClass" type="checkbox">2</label>
+                <label><input class="hotelClass" type="checkbox" value="5">5</label>
+                <label><input class="hotelClass" type="checkbox" value="4">4</label>
+                <label><input class="hotelClass" type="checkbox" value="3">3</label>
+                <label><input class="hotelClass" type="checkbox" value="2">2</label>
             </div>
             <div name="brandFilter">
                 <h3>Brand</h3>
-                <label><input class="brand" type="checkbox">OYO</label>
-                <label><input class="brand" type="checkbox">FabHotels</label>
-                <label><input class="brand" type="checkbox">Treebo</label>
-                <label><input class="brand" type="checkbox">Radisson</label>
+                <label><input class="brand" type="checkbox" value="OYO">OYO</label>
+                <label><input class="brand" type="checkbox" value="FabHotels">FabHotels</label>
+                <label><input class="brand" type="checkbox" value="Treebo">Treebo</label>
+                <label><input class="brand" type="checkbox" value="Radisson">Radisson</label>
             </div>
         </div>
         <div id="resultSortHotels">
             <div id="resultAndSort">
                 <h3>5,891 properties in New Delhi</h3>
                 <label>
+                    Sort
                     <select name="sort" id="sort">
-                        <option value="">All</option>
-                        <option value="Sort by price LTH">Sort by price LTH</option>
-                        <option value="Sort by price HTL">Sort by price HTL</option>
-                        <option value="Sort by rating">Sort by rating</option>
+                        <option value="Sort by rating">Rating HTL</option>
+                        <option value="Sort by rating">Rating LTH</option>
+                        <option value="Sort by price HTL">Price HTL</option>
+                        <option value="Sort by price LTH">Price LTH</option>
                     </select>
                 </label>
             </div>
@@ -100,11 +103,35 @@
     </div>
 
     <div id="FAQ">
-
+        <h3>Frequently Asked Questions about New Delhi hotels</h3>
+        <!-- <h3>What are the best hotels near Qutub Minar?</h3>
+        <p>Clarion Collection, FabHotel Sage, and Hotel Pluto's are some of the most popular hotels for travellers looking to stay near Qutub Minar. See the full list: Hotels near Qutub Minar.</p> -->
     </div>
 
-    <div id="holidadySpecial">
-
+    <div id="holidaySpecial">
+        <h2 id="message">Consider a holiday rental and get more space and privacy</h2>
+        <div id="hotelsForHolidays">
+            <div>
+                <img src="../resources/hotelBedroom.jpg" alt="">
+                <p>Rs. 4630/night</p>
+                <p>1 bedroom, sleeps 2</p>
+            </div>
+            <div>
+                <img src="../resources/hotelBedroom.jpg" alt="">
+                <p>Rs. 4630/night</p>
+                <p>1 bedroom, sleeps 2</p>
+            </div>
+            <div>
+                <img src="../resources/hotelBedroom.jpg" alt="">
+                <p>Rs. 4630/night</p>
+                <p>1 bedroom, sleeps 2</p>
+            </div>
+            <div>
+                <img src="../resources/hotelBedroom.jpg" alt="">
+                <p>Rs. 4630/night</p>
+                <p>1 bedroom, sleeps 2</p>
+            </div>    
+        </div>
     </div>
 
     <div id="footer">
