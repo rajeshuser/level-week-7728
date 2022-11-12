@@ -1,5 +1,6 @@
 let hotels = []
 let filteredAndSortedHotels = []
+let cart = JSON.parse(localStorage.getItem("cart")) || []
 
 loadHotels() 
 
@@ -8,8 +9,8 @@ let filterInputElements = document.querySelectorAll("#filters input")
 for(let i=0; i<filterInputElements.length; i++) {
     filterInputElements[i].addEventListener("change", filterAndSortHotels)
 }
-
 document.querySelector("#sort").addEventListener("change", filterAndSortHotels)
+document.querySelector("#searchDiv>button").addEventListener("click", filterAndSortHotels)
 
 function filterAndSortHotels() {
 
@@ -25,7 +26,6 @@ function filterAndSortHotels() {
 
             let category = filterInputElements[i].getAttribute("class")
             let value = filterInputElements[i].getAttribute("value")
-            console.log({category})
             
             if(category==="covidSafe") {
                 if(hotel.covidSafe===true) {
@@ -81,21 +81,41 @@ function filterAndSortHotels() {
                 }
             }   
         }
+        // filter for city entered in search bar
+        let city = document.querySelector("#search").value
+        // if the search bar is empty, it should not affect the isPassedFilter
+        if(city!=="") {
+            isPassedFilter = hotel.city===city
+        }
         return isPassedFilter
     })
 
-    // here, filterAndSortHotels.sort()
-
+    // sorting
+    let sortOrder = document.querySelector("#sort").value
+    if(sortOrder==="Rating HTL") 
+        filteredAndSortedHotels.sort((hotelA, hotelB) => {return hotelB.rating-hotelA.rating})
+    if(sortOrder==="Rating LTH") 
+        filteredAndSortedHotels.sort((hotelA, hotelB) => {return hotelA.rating-hotelB.rating})
+    if(sortOrder==="Price HTL") 
+        filteredAndSortedHotels.sort((hotelA, hotelB) => {return hotelB.price-hotelA.price})
+    if(sortOrder==="Price LTH") 
+        filteredAndSortedHotels.sort((hotelA, hotelB) => {return hotelA.price-hotelB.price} ) 
+    
     updateHotels(filteredAndSortedHotels)
 
 }
 
 async function loadHotels() {
-    let hotelsEndpoint = "https://636b38dd7f47ef51e12a98e4.mockapi.io/hotels"
-    hotels = await (await fetch(hotelsEndpoint)).json()
-    hotels.forEach(hotel => modifyHotel(hotel))
-    updateHotels(hotels)
-    updateFAQ()
+    try{
+        let hotelsEndpoint = "https://636b38dd7f47ef51e12a98e4.mockapi.io/hotels"
+        hotels = await (await fetch(hotelsEndpoint)).json()
+        hotels.forEach(hotel => modifyHotel(hotel))
+        updateHotels(hotels)
+        updateFAQ()
+    } catch(error) {
+        alert("Turn on the internet")
+    }
+        
 }
 
 function updateHotels(hotels) {
@@ -103,6 +123,14 @@ function updateHotels(hotels) {
     hotelsDiv.innerHTML = null;
     for(let i=0; i<hotels.length; i++) {
         hotelsDiv.append(objectToHTML(hotels[i], i))
+    }
+    // update total number of hotels in the city entered in the search bar
+    let city = document.querySelector("#search").value
+    let resultH3 = document.querySelector("#resultAndSort>h3")
+    if(city==="") {
+        resultH3.innerText = `Total ${hotels.length} hotels found`
+    } else {
+        resultH3.innerText = `Total ${hotels.length} hotels found in ${city}`
     }
 }
 
@@ -136,6 +164,8 @@ function objectToHTML(hotelObject, index) {
     // 5
     let bookButton = document.createElement("button") 
     bookButton.innerText = "Book"
+    bookButton.addEventListener("click", (event) => addHotelToCart(event.target, hotelObject))
+    updateBookButtonState(bookButton, hotelObject)
 
     // 5.5
     let dealsDiv = document.createElement("div")
@@ -230,6 +260,42 @@ function objectToHTML(hotelObject, index) {
     
 }
 
+function addHotelToCart(bookButton, hotelObject) {
+    // if the user login, then only allow to book the hotel
+    if(isUserLogin()===false) {
+        alert("Please login to your account to book an hotel")
+        return
+    }
+    if(isHotelAlreadyInCart(hotelObject)===false) {
+        cart.push(hotelObject)
+        localStorage.setItem("cart", JSON.stringify(cart))
+    }
+    updateBookButtonState(bookButton, hotelObject)
+}
+
+function isUserLogin() {
+    return JSON.parse(localStorage.getItem("user"))!==null
+}
+
+function updateBookButtonState(bookButton, hotelObject) {
+    if(isHotelAlreadyInCart(hotelObject)===true && isUserLogin()===true) {
+        bookButton.disabled = true
+        bookButton.innerText = "Booked"
+    } else {
+        bookButton.disabled = false
+        bookButton.innerText = "Book"
+    }
+}
+
+function isHotelAlreadyInCart(hotelObject) {
+    for(let i=0; i<cart.length; i++) {
+        if(cart[i].id===hotelObject.id) {
+            return true
+        }
+    }
+    return false
+}
+
 function updateFAQ() {
     let question = `<h3>What are the best hotels near Qutub Minar?</h3>
     <p>Clarion Collection, FabHotel Sage, and Hotel Pluto's are some of the most popular hotels for travellers looking to stay near Qutub Minar. See the full list: Hotels near Qutub Minar.</p>`
@@ -251,40 +317,25 @@ function modifyHotel(hotel) {
         "Opulent Hotel by Ferns N Petals",
         "Taurus Sarovar Portico"
     ]
-    let deals = [
-        "Free cancellation",
-        "Reserve now, pay at stay",
-        "Properties with speacial offer"
-    ]
-    let amenities = [
-        "Free wifi",
-        "Breakfast included",
-        "Pool",
-        "Free parking"
-    ]
-    let brands = [
-        "OYO", 
-        "FabHotels", 
-        "Treebo", 
-        "Radisson"
-    ]
-    let propertyType = [
-        "Guest houses",
-        "Speacial logings",
-        "Lodges"
-    ]
+    let deals = ["Free cancellation", "Reserve now, pay at stay", "Properties with speacial offer"]
+    let amenities = ["Free wifi", "Breakfast included", "Pool", "Free parking"]
+    let brands = ["OYO", "FabHotels", "Treebo", "Radisson"]
+    let propertyTypes = ["Guest houses", "Speacial logings", "Lodges"]
+    let cities = ["Delhi", "Hyderabad", "Pune", "Bangalore", "Goa", "Chennai", "Manali", "Mumbai", "Ladakh", "Kolkata", "Noida", "Indore"]
     hotel.name = random(names)
     hotel.deals = [random(deals), random(deals)]
     hotel.amenities = [random(amenities), random(amenities), random(amenities)]
     hotel.price = hotel.price * 100
     hotel.hotelClass = random([2,3,4,5])
-    hotel.propertyType = random(propertyType)
+    hotel.rating = random([1,2,3,4,5])
+    hotel.propertyType = random(propertyTypes)
     hotel.covidSafe = random([true, false])
+    hotel.city = random(cities)
 }
 
 function stars(rating) {
     let stars = "Rating "
-    for(let i=1; i<=(1+rating%4); i++) {
+    for(let i=1; i<=rating; i++) {
         stars += "*"
     }
     return stars

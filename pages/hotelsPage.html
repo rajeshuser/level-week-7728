@@ -13,15 +13,21 @@
 
     <div id="navigation">
         <div id="options">
-            <img id="logo" src="../resources/logo.png" alt="logo">
+            <div id="logoDiv">
+                <a href="homePage.html"><img src="../resources/logo.png" alt="logo"></a>
+            </div>
             <h3>Review</h3>
             <h3>Trips</h3>
             <h3>Alerts</h3>
-            <img src="../resources/userAvatarPlaceholder.png" alt="userAvatarPlaceholder">
-            <img src="../resources/cart.png" alt="cart">
+            <div>
+                <a href="accountPage.html"><img src="../resources/userAvatarPlaceholder.png" alt="userAvatarPlaceholder"></a>
+            </div>
+            <div>
+                <a href="cartPage.html"><img src="../resources/cart.png" alt="cart"></a>
+            </div>
         </div>
         <div id="tabs">
-            <h3>Hotels</h3>
+            <h3><a href="hotelsPage.html">Hotels</a></h3>
             <h3>Holiday Homes</h3>
             <h3>Places To Visit</h3>
             <h3>Restaurants</h3>
@@ -86,10 +92,10 @@
                 <label>
                     Sort
                     <select name="sort" id="sort">
-                        <option value="Sort by rating">Rating HTL</option>
-                        <option value="Sort by rating">Rating LTH</option>
-                        <option value="Sort by price HTL">Price HTL</option>
-                        <option value="Sort by price LTH">Price LTH</option>
+                        <option value="Rating HTL">Rating HTL</option>
+                        <option value="Rating LTH">Rating LTH</option>
+                        <option value="Price HTL">Price HTL</option>
+                        <option value="Price LTH">Price LTH</option>
                     </select>
                 </label>
             </div>

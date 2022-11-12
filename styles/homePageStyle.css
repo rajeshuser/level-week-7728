@@ -14,7 +14,10 @@ body {
     justify-content: space-between;
 }
 #searchHistory > div {
-    width: 23%;
+    width: 22%;
+    padding: 10px;
+    background-color: rgb(217, 254, 242);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 #searchHistory > div > :nth-child(n) {
     margin-top: 1%;
@@ -26,6 +29,12 @@ body {
 #searchHistory > div > button {
     display: block;
     margin-left: auto;
+    padding: 2% 4%;
+    background-color: rgb(73, 94, 255);
+    color: whitesmoke;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #bestTours {
@@ -62,7 +71,10 @@ h1 {
     justify-content: space-between;
 }
 .spots > div {
-    width: 23%;
+    width: 22%;
+    padding: 10px;
+    background-color: rgb(217, 254, 242);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .spots > div > :nth-child(n) {
     margin-top: 1%;
@@ -74,6 +86,12 @@ h1 {
 .spots > div > button {
     display: block;
     margin-left: auto;
+    padding: 2% 4%;
+    background-color: rgb(73, 94, 255);
+    color: whitesmoke;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 } 
 
 #explore {
@@ -84,6 +102,7 @@ h1 {
 }
 #explore > div {
     width: 30%;
+    border-style: ridge;
 }
 #explore > div > img {
     width: 100%;

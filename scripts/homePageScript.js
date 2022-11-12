@@ -3,31 +3,21 @@ let spots = hotels = reviews = users = null
 getData()
 
 async function getData() {
-
-    let spotsEndpoint = "https://636b38dd7f47ef51e12a98e4.mockapi.io/spots"
-    let hotelsEndpoint = "https://636b38dd7f47ef51e12a98e4.mockapi.io/hotels"
-    let reviewsEndpoint = "https://636b38dd7f47ef51e12a98e4.mockapi.io/reviews"
-    let usersEndpoint = "https://636b38dd7f47ef51e12a98e4.mockapi.io/users"
-
-    spots = await (await fetch(spotsEndpoint)).json()
-    hotels = await (await fetch(hotelsEndpoint)).json()
-    reviews = await (await fetch(reviewsEndpoint)).json()
-    users = await (await fetch(usersEndpoint)).json()
-
-    // spots = JSON.parse(localStorage.getItem("spots"))
-    // hotels = JSON.parse(localStorage.getItem("hotels"))
-    // reviews = JSON.parse(localStorage.getItem("reviews"))
-    // users = JSON.parse(localStorage.getItem("users"))
-
-    // localStorage.setItem("spots", JSON.stringify(spots))
-    // localStorage.setItem("hotels", JSON.stringify(hotels))
-    // localStorage.setItem("reviews", JSON.stringify(reviews))
-    // localStorage.setItem("users", JSON.stringify(users))
-
-    updateSearchHistory()
-    updateSpotDivs()
-    updateExploreDiv()
-
+    try {
+        let spotsEndpoint = "https://636b38dd7f47ef51e12a98e4.mockapi.io/spots"
+        let hotelsEndpoint = "https://636b38dd7f47ef51e12a98e4.mockapi.io/hotels"
+        let reviewsEndpoint = "https://636b38dd7f47ef51e12a98e4.mockapi.io/reviews"
+        let usersEndpoint = "https://636b38dd7f47ef51e12a98e4.mockapi.io/users"
+        spots = await (await fetch(spotsEndpoint)).json()
+        hotels = await (await fetch(hotelsEndpoint)).json()
+        reviews = await (await fetch(reviewsEndpoint)).json()
+        users = await (await fetch(usersEndpoint)).json()
+        updateSearchHistory()
+        updateSpotDivs()
+        updateExploreDiv()
+    } catch(error) {
+        alert("Turn on the internet")
+    }
 }
 
 function updateSearchHistory() {
@@ -58,7 +48,11 @@ function objectToHTML(object) {
     let image = document.createElement("img")
     image.src = object.image
     let nameH3 = document.createElement("h3")
-    nameH3.innerText = object.name
+    // nameH3.innerText = object.name
+    nameH3.innerText = function random(fakeSpotNames=["Varanasi", "Agra", "Rishikesh", "Coorg", "Munnar"]) {
+        let i = Math.floor(Math.random()*(--fakeSpotNames.length))
+        return fakeSpotNames[i]
+    }()
     let priceP = document.createElement("p")
     priceP.innerText = "Rs. " + object.price
     let ratingP = document.createElement("p")

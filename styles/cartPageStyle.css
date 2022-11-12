@@ -1,0 +1,76 @@
+body {
+    background-color: mintcream;
+    padding: 0 5%;
+}
+
+#hotels {
+    flex-grow: 1;
+}
+.hotel {
+    display: flex;
+    height: 52vh;
+    margin: 2% auto;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.hotelInfo {
+    display: flex;
+    padding-left: 2%;
+    padding-right: 2%;
+    flex-grow: 1;
+    flex-direction: column;
+}
+.hotelInfo > h2 {
+    margin: 2% auto 2% 0;
+    color: rgb(53, 97, 255);
+}
+.infoSections {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.leftSection {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.leftSection > img {
+    width: 80%;
+}
+.leftSection > p {
+    font-size: larger;
+    margin: 10%;
+}
+.leftSection > button {
+    width: 100%;
+    padding: 7%;
+    border-width: 0;
+    border-radius: 100px;
+    background-color: gold;
+    font-size: large;
+}
+.leftSection > .deals {
+    align-self: flex-start;
+}
+.leftSection > .deals > :nth-child(n){
+    font-size: medium;
+}
+.middleSection {
+    font-size: 85%;
+    text-align: center;
+}
+.middleSection > div > p {
+    margin: 10% auto;
+}
+.rightSection > ul {
+    list-style: none;
+    padding: 0;
+}
+.hotelImage {
+    display: block;
+}
+.hotelImage > img {
+    height: 100%;
+}
