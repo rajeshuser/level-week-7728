@@ -1,3 +1,8 @@
+body {
+    background-color: mintcream;
+    padding: 0 5%;
+}
+
 form {
     display: flex;
     flex-direction: column;
