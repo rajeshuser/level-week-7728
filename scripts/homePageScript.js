@@ -48,7 +48,11 @@ function objectToHTML(object) {
     let image = document.createElement("img")
     image.src = object.image
     let nameH3 = document.createElement("h3")
-    nameH3.innerText = object.name
+    // nameH3.innerText = object.name
+    nameH3.innerText = function random(fakeSpotNames=["Varanasi", "Agra", "Rishikesh", "Coorg", "Munnar"]) {
+        let i = Math.floor(Math.random()*(--fakeSpotNames.length))
+        return fakeSpotNames[i]
+    }()
     let priceP = document.createElement("p")
     priceP.innerText = "Rs. " + object.price
     let ratingP = document.createElement("p")
