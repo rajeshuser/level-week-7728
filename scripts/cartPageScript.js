@@ -41,7 +41,7 @@ function objectToHTML(hotelObject, index) {
     
     // 3
     let img = document.createElement("img")
-    img.src = "../resources/bookingLogo.png"
+    img.src = "resources/bookingLogo.png"
     img.alt = "img"
 
     // 4

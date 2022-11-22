@@ -32,6 +32,6 @@ body {
     border-radius: 5px;
     width: 15%;
 }
-#tabs > :nth-child(n):hover {
+#tabs > :nth-child(n):hover, #options > :nth-child(n):hover {
     background-color: rgb(209, 209, 209);
 }
